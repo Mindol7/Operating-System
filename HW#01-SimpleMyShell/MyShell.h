@@ -9,20 +9,19 @@
 
 using namespace std;
 
-
-/* 필요한 전역변수 선언 */
-extern bool IsEXIT;
+/* Global Variables */
+extern bool isEXIT;
 extern string SHELL_NAME;
 extern time_t SHELL_TIME;
 extern string SHELL_USER;
 extern string delim;
-extern vector<string> internal_cmd;
+extern vector<string> internalCommand;
 
-/* 필요한 함수 선언 */
-void ConfigEnv();
-void InitShell();
-void SelectShell(vector<string> args);
-void InternalCmd(vector<string> args);
-void ExternalCmd(vector<string> args);
-void RedirectCmd(vector<string> args);
-vector<string> ParseArg(string arg);
+/* Functions */
+void configEnv();
+void initShell();
+void selectShell(vector<string> args);
+void internalCmd(vector<string> args);
+void externalCmd(vector<string> args);
+void redirectCmd(vector<string> args);
+vector<string> parseArg(string arg);

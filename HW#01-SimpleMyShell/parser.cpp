@@ -1,6 +1,6 @@
 #include "MyShell.h"
 
-vector<string> ParseArg(string arg){
+vector<string> parseArg(string arg){
     vector<string> args;
     size_t start = 0; size_t end = 0;
 
@@ -10,5 +10,6 @@ vector<string> ParseArg(string arg){
     }
 
     if(start < arg.length()) args.push_back(arg.substr(start));
+    
     return args;
 }  

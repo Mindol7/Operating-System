@@ -1,24 +1,24 @@
 #include "MyShell.h"
 
-bool IsEXIT;
+bool isEXIT;
 
 time_t SHELL_TIME;
 string SHELL_NAME;
 string SHELL_USER;
 
 string delim;
-vector<string> internal_cmd;
+vector<string> internalCommand;
 
 int main(int argc, char * argv[]){
     SHELL_TIME = time(NULL);
-    SHELL_NAME = "MyShell";
+    SHELL_NAME = "minhyuk:";
     SHELL_USER = getenv("USER");
 
     delim = " \n\t\r\a";
-    internal_cmd = {"cd", "exit", "pwd"};
+    internalCommand = {"cd", "exit", "quit", "q", "pwd", "help"};
 
-    ConfigEnv();
-    InitShell();
+    configEnv();
+    initShell();
 
     cout<<"Finish SiSH Shell !!!"<<endl;    
     return 0;

@@ -1,5 +1,5 @@
 CC = g++ -O2
-OBJS = config.o main.o Parser.o shell_func.o
+OBJS = config.o main.o parser.o shellFunc.o
 TARGET = MyShell
 
 clean:
@@ -12,11 +12,11 @@ $(TARGET): $(OBJS)
 config.o: config.cpp MyShell.h
 	$(CC) -c config.cpp
 
-Parser.o: Parser.cpp MyShell.h
+Parser.o: parser.cpp MyShell.h
 	$(CC) -c Parser.cpp
 
-shell_func.o: shell_func.cpp MyShell.h
-	$(CC) -c shell_func.cpp
+shell_func.o: shellFunc.cpp MyShell.h
+	$(CC) -c shellFunc.cpp
 
 main.o: MyShell.h main.cpp
 	$(CC) -c main.cpp
