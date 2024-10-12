@@ -5,15 +5,14 @@ void process_line(SharedObject& so, const string& line) {
     char* cstr = new char[line.length() + 1];
     strcpy(cstr, line.c_str());
 
-    char* token = strtok(cstr, sep); // 문자열이 분리된 상태
+    char* token = strtok(cstr, sep);
     while (token != nullptr) {
         size_t length = strlen(token);
+
         if (length >= MAX_STRING_LENGTH) length = MAX_STRING_LENGTH;
 
-        // 단어 길이 통계 업데이트
         so.stat[length - 1]++;
 
-        // 각 문자 빈도수 통계 업데이트
         for (size_t i = 0; i < length; i++) {
             unsigned char ch = token[i];
             if (ch < ASCII_SIZE) {
@@ -21,14 +20,13 @@ void process_line(SharedObject& so, const string& line) {
             }
         }
 
-        token = strtok(nullptr, sep); // 다음 토큰을 가르키도록 함
+        token = strtok(nullptr, sep);
     }
 
     delete[] cstr;
 }
 
 void print_statistics(SharedObject& so){
-    // sum
 	int sum = 0;
 	for (int i = 0 ; i < MAX_STRING_LENGTH ; i++) {
 		sum += so.stat[i];
@@ -38,9 +36,10 @@ void print_statistics(SharedObject& so){
         printf("No words were processed.\n");
         return;
     }
-	// print out distributions
+
 	printf("*** print out distributions *** \n");
 	printf("  #ch  freq \n");
+    
 	for (int i = 0 ; i < 30 ; i++) {
 		int j = 0;
 		int num_star = so.stat[i]*80/sum;
@@ -49,6 +48,7 @@ void print_statistics(SharedObject& so){
 			printf("*");
 		printf("\n");
 	}
+
 	printf("       A        B        C        D        E        F        G        H        I        J        K        L        M        N        O        P        Q        R        S        T        U        V        W        X        Y        Z\n");
 	printf("%8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d\n",
 			so.stat2['A']+so.stat2['a'], so.stat2['B']+so.stat2['b'],  so.stat2['C']+so.stat2['c'],  so.stat2['D']+so.stat2['d'],  so.stat2['E']+so.stat2['e'],

@@ -24,17 +24,14 @@ int main(int argc, char *argv[]) {
     int i = 0;
     int sum;
     
-    // 생산자 스레드 생성
     for (int i = 0; i < Nprod; ++i) {
-        producers.emplace_back(producer, share, &prod_results[i]); // 스레드니까 함수를 호출할 스레드 생성하고 매개변수 같이 전달해줌
+        producers.emplace_back(producer, share, &prod_results[i]);
     }
 
-    // 소비자 스레드 생성
     for (int i = 0; i < Ncons; ++i) {
         consumers.emplace_back(consumer, share, &cons_results[i]);
     }
 
-    // 소비자 스레드 종료 대기
     for (auto& th : consumers) {
         if (th.joinable()) {
             th.join();
@@ -45,7 +42,6 @@ int main(int argc, char *argv[]) {
 
     i = 0;
 
-    // 생산자 스레드 종료 대기
     for (auto& th : producers) {
         if (th.joinable()) {
             th.join();
