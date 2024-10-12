@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         cerr << "Error opening file\n";
         return 1;
     }
-    
+
     vector<thread> producers;
     vector<thread> consumers; 
     vector<int> prod_results(Nprod);
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     
     // 생산자 스레드 생성
     for (int i = 0; i < Nprod; ++i) {
-        producers.emplace_back(producer, share, &prod_results[i]);
+        producers.emplace_back(producer, share, &prod_results[i]); // 스레드니까 함수를 호출할 스레드 생성하고 매개변수 같이 전달해줌
     }
 
     // 소비자 스레드 생성

@@ -5,10 +5,11 @@ void process_line(SharedObject& so, const string& line) {
     char* cstr = new char[line.length() + 1];
     strcpy(cstr, line.c_str());
 
-    char* token = strtok(cstr, sep);
+    char* token = strtok(cstr, sep); // 문자열이 분리된 상태
     while (token != nullptr) {
         size_t length = strlen(token);
         if (length >= MAX_STRING_LENGTH) length = MAX_STRING_LENGTH;
+
         // 단어 길이 통계 업데이트
         so.stat[length - 1]++;
 
@@ -20,7 +21,7 @@ void process_line(SharedObject& so, const string& line) {
             }
         }
 
-        token = strtok(nullptr, sep);
+        token = strtok(nullptr, sep); // 다음 토큰을 가르키도록 함
     }
 
     delete[] cstr;
