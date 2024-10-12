@@ -1,3 +1,9 @@
+/*
+* Author: Minhyuk Cho
+* Date: 2024-10-12
+* Description: Semaphore Ver. word_count.h
+*/
+
 #pragma once
 
 #include "bits/stdc++.h"

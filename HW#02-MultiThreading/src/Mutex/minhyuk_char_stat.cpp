@@ -1,3 +1,9 @@
+/*
+* Author: Minhyuk Cho
+* Date: 2024-10-12
+* Description: Mutex Ver. minhyuk_char_stat.cpp
+*/
+
 #include "word_count.h"
 
 void process_line(SharedObject& so, const string& line) {
@@ -48,7 +54,7 @@ void print_statistics(SharedObject& so){
 			printf("*");
 		printf("\n");
 	}
-    
+
 	printf("       A        B        C        D        E        F        G        H        I        J        K        L        M        N        O        P        Q        R        S        T        U        V        W        X        Y        Z\n");
 	printf("%8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d %8d\n",
 			so.stat2['A']+so.stat2['a'], so.stat2['B']+so.stat2['b'],  so.stat2['C']+so.stat2['c'],  so.stat2['D']+so.stat2['d'],  so.stat2['E']+so.stat2['e'],

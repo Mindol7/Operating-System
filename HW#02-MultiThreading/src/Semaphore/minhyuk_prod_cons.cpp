@@ -1,3 +1,9 @@
+/*
+* Author: Minhyuk Cho
+* Date: 2024-10-12
+* Description: Semaphore Ver. minhyuk_prod_cons.cpp
+*/
+
 #include "word_count.h"
 
 void producer(shared_ptr<SharedObject> so, int *ret) {

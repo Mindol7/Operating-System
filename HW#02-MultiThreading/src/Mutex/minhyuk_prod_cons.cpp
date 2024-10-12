@@ -1,3 +1,9 @@
+/*
+* Author: Minhyuk Cho
+* Date: 2024-10-12
+* Description: Mutex Ver. minhyuk_prod_cons.cpp
+*/
+
 #include "word_count.h"
 
 void producer(shared_ptr<SharedObject> so, int *ret) {
@@ -43,7 +49,7 @@ void consumer(shared_ptr<SharedObject> so, int *ret) {
         }
 
         process_line(*so, so->line);
-        
+
         cout << "Cons_" << this_thread::get_id() << ": [" << i << ":" << so->linenum << "] " << so->line << endl;
         i++;
         so->full = false;

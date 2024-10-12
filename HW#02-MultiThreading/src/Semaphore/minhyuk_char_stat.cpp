@@ -1,3 +1,9 @@
+/*
+* Author: Minhyuk Cho
+* Date: 2024-10-12
+* Description: Semaphore Ver. minhyuk_char_stat.cpp
+*/
+
 #include "word_count.h"
 
 void process_line(SharedObject& so, const string& line) {
@@ -39,7 +45,7 @@ void print_statistics(SharedObject& so){
 
 	printf("*** print out distributions *** \n");
 	printf("  #ch  freq \n");
-    
+
 	for (int i = 0 ; i < 30 ; i++) {
 		int j = 0;
 		int num_star = so.stat[i]*80/sum;
