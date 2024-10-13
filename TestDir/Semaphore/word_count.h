@@ -1,9 +1,3 @@
-/*
-* Author: Minhyuk Cho
-* Date: 2024-10-12
-* Description: Semaphore Ver. word_count.h
-*/
-
 #pragma once
 
 #include "bits/stdc++.h"
@@ -13,27 +7,26 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define MAX_STRING_LENGTH 30
-#define ASCII_SIZE	256
-#define BUFFER_SIZE 100
+#define MAX_STRING_LENGTH 30 // 문자열의 최대 길이
+#define ASCII_SIZE	256 // 아스키 문자 테이블 크기
 
 using namespace std;
 
 struct SharedObject {
-    ifstream rfile;
-    int linenum = 0;
-    string line[BUFFER_SIZE];
+    ifstream rfile; // 입력 파일을 읽는 역할을 함
+    int linenum = 0; // 현재 읽고 있는 줄 번호 저장
+    string line; // 현재 읽은 한줄을 저장
+    bool full_data = false;
 
+    /* 동기화 문제를 해결하기 위한 변수 추가 */
     bool finished = false;
     int stat[MAX_STRING_LENGTH];
     int stat2[ASCII_SIZE];
-    mutex mtx;
 
+    /* 세마포어 */
     counting_semaphore<1> empty{1};
     counting_semaphore<1> full{0};
-    
-    int producer_idx;
-    int consumer_idx;
+    mutex mtx;
 
     SharedObject(){
         memset(stat, 0, sizeof(stat));

@@ -1,9 +1,3 @@
-/*
-* Author: Minhyuk Cho
-* Date: 2024-10-12
-* Description: Semaphore Ver. main.cpp
-*/
-
 #include "word_count.h"
 
 int main(int argc, char *argv[]) {
@@ -12,16 +6,12 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    auto start = chrono::high_resolution_clock::now();
-
     int Nprod = (argc > 2) ? min(atoi(argv[2]), 100) : 1;
     int Ncons = (argc > 3) ? min(atoi(argv[3]), 100) : 1;
 
     auto share = make_shared<SharedObject>();
     share->rfile.open(argv[1]);
-    share->producer_idx = 0;
-    share->consumer_idx = 0;
-
+    
     if (!share->rfile.is_open()) {
         cerr << "Error opening file\n";
         return 1;
@@ -33,14 +23,18 @@ int main(int argc, char *argv[]) {
     vector<int> cons_results(Ncons);
     int i = 0;
     int sum;
+    
+    // 생산자 스레드 생성
     for (int i = 0; i < Nprod; ++i) {
-        producers.emplace_back(producer, share, &prod_results[i]);
+        producers.emplace_back(producer, share, &prod_results[i]); // 스레드니까 함수를 호출할 스레드 생성하고 매개변수 같이 전달해줌
     }
 
+    // 소비자 스레드 생성
     for (int i = 0; i < Ncons; ++i) {
         consumers.emplace_back(consumer, share, &cons_results[i]);
     }
 
+    // 소비자 스레드 종료 대기
     for (auto& th : consumers) {
         if (th.joinable()) {
             th.join();
@@ -51,6 +45,7 @@ int main(int argc, char *argv[]) {
 
     i = 0;
 
+    // 생산자 스레드 종료 대기
     for (auto& th : producers) {
         if (th.joinable()) {
             th.join();
@@ -60,12 +55,6 @@ int main(int argc, char *argv[]) {
     }
 
     print_statistics(*share);
-
-    auto end = chrono::high_resolution_clock::now();
-
-    chrono::duration<double> elapsed = end - start;
-
-    cout<<"Execution Time: "<<elapsed.count()<<" seconds\n";
-
+    
     return 0;
 }

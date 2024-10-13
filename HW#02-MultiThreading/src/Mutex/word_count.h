@@ -13,13 +13,13 @@
 
 #define MAX_STRING_LENGTH 30
 #define ASCII_SIZE	256
-
+#define BUFFER_SIZE 100
 using namespace std;
 
 struct SharedObject {
     ifstream rfile;
     int linenum = 0; 
-    string line;
+    string line[BUFFER_SIZE];
     mutex lock;
     bool full = false;
 
@@ -27,6 +27,9 @@ struct SharedObject {
     bool finished = false;
     int stat[MAX_STRING_LENGTH];
     int stat2[ASCII_SIZE];
+
+    int producer_idx;
+    int consumer_idx;
 
     SharedObject(){
         memset(stat, 0, sizeof(stat));

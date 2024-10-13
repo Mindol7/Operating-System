@@ -22,7 +22,9 @@ void producer(shared_ptr<SharedObject> so, int *ret) {
         }
 
         so->linenum = i;
-        so->line = line;
+        so->line[so->producer_idx] = line;
+
+        so->producer_idx = (so->producer_idx + 1) % BUFFER_SIZE;
 
         i++;
         so->full.release();
@@ -45,7 +47,10 @@ void consumer(shared_ptr<SharedObject> so, int *ret) {
             break;
         }
 
-        process_line(*so, so->line);
+        process_line(*so, so->line[so->consumer_idx]);
+
+        so->consumer_idx  = (so->consumer_idx + 1) % BUFFER_SIZE;
+        
         cout<<"Cons_"<<this_thread::get_id()<<":["<<i<<": "<<so->linenum<<"] "<<so->line<<endl;
         i++;
 
