@@ -6,31 +6,57 @@
 
 #include "word_count.h"
 
-void process_line(SharedObject& so, const string& line) {
-    char sep[] = "{}()[],;\" \n\t^";
-    char* cstr = new char[line.length() + 1];
-    strcpy(cstr, line.c_str());
+// void process_line(SharedObject& so, const string& line) {
+//     char sep[] = "{}()[],;\" \n\t^";
+//     char* cstr = new char[line.length() + 1];
+//     strcpy(cstr, line.c_str());
 
-    char* token = strtok(cstr, sep);
-    while (token != nullptr) {
-        size_t length = strlen(token);
+//     char* token = strtok(cstr, sep);
+//     while (token != nullptr) {
+//         size_t length = strlen(token);
 
-        if (length >= MAX_STRING_LENGTH) length = MAX_STRING_LENGTH;
+//         if (length >= MAX_STRING_LENGTH) length = MAX_STRING_LENGTH;
 
+//         so.stat[length - 1]++;
+
+//         for (size_t i = 0; i < length; i++) {
+//             unsigned char ch = token[i];
+//             if (ch < ASCII_SIZE) {
+//                 so.stat2[ch]++;
+//             }
+//         }
+
+//         token = strtok(nullptr, sep);
+//     }
+
+//     delete[] cstr;
+// }
+void process_line(SharedObject& so, const std::string& line) {
+    std::istringstream iss(line);  // 문자열을 한 번에 처리할 수 있도록 stringstream 사용
+    std::string token;
+    
+    // 구분자를 사용하지 않고 직접 공백과 특수문자를 기준으로 토큰화
+    while (iss >> token) {
+        size_t length = token.length();
+
+        // 토큰의 길이 제한 처리
+        if (length > MAX_STRING_LENGTH) {
+            length = MAX_STRING_LENGTH;
+        }
+
+        // 단어 길이 통계
         so.stat[length - 1]++;
 
+        // 각 문자에 대해 아스키 코드별 통계
         for (size_t i = 0; i < length; i++) {
             unsigned char ch = token[i];
             if (ch < ASCII_SIZE) {
                 so.stat2[ch]++;
             }
         }
-
-        token = strtok(nullptr, sep);
     }
-
-    delete[] cstr;
 }
+
 
 void print_statistics(SharedObject& so){
 	int sum = 0;

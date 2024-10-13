@@ -15,7 +15,7 @@
 
 #define MAX_STRING_LENGTH 30
 #define ASCII_SIZE	256
-#define BUFFER_SIZE 100
+#define BUFFER_SIZE 1000000
 
 using namespace std;
 
