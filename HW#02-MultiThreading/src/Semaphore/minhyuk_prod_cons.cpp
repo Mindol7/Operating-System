@@ -50,16 +50,16 @@ void consumer(shared_ptr<SharedObject> so, int *ret) {
         unique_lock<mutex> lock(so->mtx);
 
         if (so->finished && so->producer_idx == so->consumer_idx) {
-            // so->empty.release();
-            // so->full.release();
+            so->empty.release();
+            so->full.release();
             break;
         }
 
         process_line(*so, so->line[so->consumer_idx]);
-
+        int tmp_idx = so->consumer_idx;
         so->consumer_idx  = (so->consumer_idx + 1) % BUFFER_SIZE;
 
-        cout<<"Cons_"<<this_thread::get_id()<<":["<<i<<": "<<so->linenum<<"] "<<so->line<<endl;
+        cout<<"Cons_"<<this_thread::get_id()<<":["<<i<<": "<<so->linenum<<"] "<<so->line[tmp_idx]<<endl;
         i++;
 
         so->empty.release();
