@@ -18,45 +18,41 @@ int main(int argc, char *argv[]) {
     int Ncons = (argc > 3) ? min(atoi(argv[3]), 100) : 1;
 
     auto share = make_shared<SharedObject>();
-    share->rfile.open(argv[1]);
+    share->rfile = fopen((char *) argv[1], "rb");
     share->producer_idx = 0;
     share->consumer_idx = 0;
 
-    if (!share->rfile.is_open()) {
-        cerr << "Error opening file\n";
-        return 1;
-    }
+    sem_init(&share->full, 0, 0);
+    pthread_mutex_init(&share->lock, NULL);
+    sem_init(&share->empty, 0, BUFFER_SIZE);
 
+    cout<<"Continue ...\n";
     vector<thread> producers;
     vector<thread> consumers; 
     vector<int> prod_results(Nprod);
     vector<int> cons_results(Ncons);
     int i = 0;
     int sum;
-    for (int i = 0; i < Nprod; ++i) {
-        producers.emplace_back(producer, share, &prod_results[i]);
-    }
+    for (int i = 0; i < Nprod; ++i) producers.emplace_back(producer, share, &prod_results[i]);
 
-    for (int i = 0; i < Ncons; ++i) {
-        consumers.emplace_back(consumer, share, &cons_results[i]);
-    }
-
+    for (int i = 0; i < Ncons; ++i) consumers.emplace_back(consumer, share, &cons_results[i]);
+    
     for (auto& th : consumers) {
         if (th.joinable()) {
             th.join();
-            cout<<"main: consumer_"<<i<<" joined with "<<cons_results[i]<<endl;
+            // cout<<"main: consumer_"<<i<<" joined with "<<cons_results[i]<<endl;
         }
-        i++;
+        // i++;
     }
 
-    i = 0;
+    // i = 0;
 
     for (auto& th : producers) {
         if (th.joinable()) {
             th.join();
-            cout<<"main: producer_"<<i<<" joined with "<<prod_results[i]<<endl;
+            // cout<<"main: producer_"<<i<<" joined with "<<prod_results[i]<<endl;
         }
-        i++;
+        // i++;
     }
 
     print_statistics(*share);

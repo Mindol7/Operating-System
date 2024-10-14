@@ -8,30 +8,33 @@
 
 #include "bits/stdc++.h"
 
-#include <semaphore>
+#include <pthread.h>
+
+#include <semaphore.h>
 
 #include <stdlib.h>
 #include <unistd.h>
 
 #define MAX_STRING_LENGTH 30
 #define ASCII_SIZE	256
-#define BUFFER_SIZE 1000000
+#define BUFFER_SIZE 4096
 
 using namespace std;
 
 struct SharedObject {
-    ifstream rfile;
+    FILE * rfile;
     int linenum = 0;
-    string line[BUFFER_SIZE];
+    char * line[BUFFER_SIZE];
 
     bool finished = false;
     int stat[MAX_STRING_LENGTH];
     int stat2[ASCII_SIZE];
-    mutex mtx;
 
-    counting_semaphore<1> empty{1};
-    counting_semaphore<1> full{0};
+    sem_t empty;
+    sem_t full;
     
+    pthread_mutex_t lock;
+
     int producer_idx;
     int consumer_idx;
 
@@ -40,6 +43,8 @@ struct SharedObject {
         memset(stat2, 0, sizeof(stat2));
     }
 };
+
+
 
 void process_line(SharedObject& so, const string& line);
 void print_statistics(SharedObject& so);

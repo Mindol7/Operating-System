@@ -8,63 +8,69 @@
 
 void producer(shared_ptr<SharedObject> so, int *ret) {
     int i = 0;
-    char buffer[BUFFER_SIZE];
-    string line;
+    char * line;
+    ssize_t read = 0;
+    size_t len = 0;
 
     while (true) {
-        so->empty.acquire();
+        sem_wait(&so->empty);
 
-        unique_lock<mutex> lock(so->mtx);
+        pthread_mutex_lock(&so->lock);
+        
+        read = getdelim(&line, &len, '\n', so->rfile);
 
-        if (!so->rfile.read(buffer, BUFFER_SIZE)) {
-            if(so->rfile.gcount() == 0){    
-                so->finished = true;
-                so->full.release(); 
-                break;
-            }
-        }
+        if (read == -1) {
+            so->line[so->producer_idx] = NULL;
+            pthread_mutex_unlock(&so->lock);
+            sem_post(&so->full);
+            break;
+        }   
+        
+        so->linenum = i;
+        so->line[so->producer_idx] = strdup(line);
 
-        stringstream ss(string(buffer, so->rfile.gcount()));
+        so->producer_idx = (so->producer_idx + 1) % BUFFER_SIZE;
 
-        while(getline(ss, line)){
-            so->linenum = i;
-            so->line[so->producer_idx] = line;
-
-            so->producer_idx = (so->producer_idx + 1) % BUFFER_SIZE;
-
-            i++;
-            so->full.release();
-        }
+        i++;
+        pthread_mutex_unlock(&so->lock);
+        sem_post(&so->full);
     }
 
     *ret = i;
-    cout<<"Prod_"<<this_thread::get_id()<<": "<<i<<"lines\n";
+    // cout<<"Prod_"<<this_thread::get_id()<<": "<<i<<"lines\n";
 }
 
 void consumer(shared_ptr<SharedObject> so, int *ret) {
     int i = 0;
-
+    char * line;
     while (true) {
-        so->full.acquire();
+        sem_wait(&so->full);
 
-        unique_lock<mutex> lock(so->mtx);
+        pthread_mutex_lock(&so->lock);
 
-        if (so->finished && so->producer_idx == so->consumer_idx) {
-            so->empty.release();
-            so->full.release();
+        line = so->line[so->consumer_idx];
+        if (line == NULL) {
+            pthread_mutex_unlock(&so->lock);
+            sem_post(&so->empty);
+            sem_post(&so->full);
             break;
         }
 
         process_line(*so, so->line[so->consumer_idx]);
+
         int tmp_idx = so->consumer_idx;
+
         so->consumer_idx  = (so->consumer_idx + 1) % BUFFER_SIZE;
 
-        cout<<"Cons_"<<this_thread::get_id()<<":["<<i<<": "<<so->linenum<<"] "<<so->line[tmp_idx]<<endl;
+        if(so->linenum % 5000000 == 0)
+            ::cout<<"Cons_"<<this_thread::get_id()<<":["<<i<<": "<<so->linenum<<"] "<<so->line[tmp_idx]<<endl;
+
         i++;
 
-        so->empty.release();
+        pthread_mutex_unlock(&so->lock);
+        sem_post(&so->empty);
     }
 
     *ret = i;
-    cout<<"Cons: "<<i<<" lines\n";
+    ::cout<<"Cons: "<<i<<" lines\n";
 }
