@@ -9,19 +9,14 @@ typedef struct Node{
 } Node;
 
 typedef struct{
-    Node* head; // 큐의 첫 번째 노드 가르킴
-    Node* tail; // 큐의 마지막 가르킴
-    int count; // 큐에 있는 노드 갯수
-}Queue;
+    Node* head;
+    Node* tail;
+    int count;
+} Queue;
 
 Queue* createQueue();
-
 int isEmpty(Queue *q);
-
-void enqueue(Queue *q, int idx, int cpu_burst, int io_burst);
-
+void enqueue(Queue *q, int pid, int cpu_burst, int io_burst);
 Process* dequeue(Queue *q);
-
 void removeQueue(Queue *q);
-
 void printQueue(const Queue *q, char type);

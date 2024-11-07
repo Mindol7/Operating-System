@@ -12,10 +12,9 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
-#define TIME_QUANTUM 1000
+#define TIME_QUANTUM 5
 #define MAX_PROCESSES 10
-#define TIME_TICK 1000
-//#define LOG_FILE "schedule_dump.txt"
+#define TIME_TICK 100
 
 extern int counter;
 extern int proc_count;

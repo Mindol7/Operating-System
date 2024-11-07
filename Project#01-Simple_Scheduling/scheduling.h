@@ -1,9 +1,10 @@
 #pragma once
 
 #include "process.h"
+#include "queue.h"
 
 /* 스케줄링 초기화 함수 */
-void initialize_scheduler(); // Ver.0 -> Round Robin
+void initialize_scheduler(); 
 
 /* 다음 프로세스 스케줄링 함수 */
 Process* schedule_next();

@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS = -Wall -g
+CFLAGS = -O2 -Wall -g
 
 TARGET = scheduler
 

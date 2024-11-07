@@ -1,4 +1,6 @@
 #include "timer.h"
+#include <signal.h>
+#include <sys/time.h>
 
 static struct itimerval timer;
 
@@ -13,10 +15,10 @@ void initialize_timer(void (*handler)(int)){
         exit(EXIT_FAILURE);
     }
 
-    timer.it_value.tv_sec = TIMER_INTERVAL / 1000;
-    timer.it_value.tv_usec = (TIMER_INTERVAL % 1000) * 1000;
-    timer.it_interval.tv_sec = TIMER_INTERVAL / 1000;
-    timer.it_interval.tv_usec = (TIMER_INTERVAL % 1000) * 1000;
+    timer.it_value.tv_sec = 0;
+    timer.it_value.tv_usec = TIME_TICK;
+    timer.it_interval.tv_sec = 1;
+    timer.it_interval.tv_usec = 0;
 }
 
 void start_timer(){
@@ -28,7 +30,7 @@ void start_timer(){
 
 void stop_timer(){
     struct itimerval stop = {0};
-    if(setitimer(ITIMER_REAL, &stop, NULL) == -1){
+    if (setitimer(ITIMER_REAL, &stop, NULL) == -1){
         perror("Error stopping timer");
         exit(EXIT_FAILURE);
     }

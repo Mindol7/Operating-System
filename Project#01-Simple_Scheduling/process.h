@@ -3,29 +3,23 @@
 #include "common.h"
 
 typedef enum{
-        NEW,
-        READY,
-        RUNNING,
-        WAITING,
-        TERMINATED
-}ProcessState;
+    NEW,
+    READY,
+    RUNNING,
+    WAITING,
+    TERMINATED
+} ProcessState;
 
-/*
-* Process 정의한 구조체
-*/
 typedef struct{
-    int pid; // Process ID
-    int arrival_time; // 
+    int pid;
+    int arrival_time;
     int cpu_burst;
     int io_burst;
     int remaining_time;
     ProcessState state;
-}Process;
+} Process;
 
 Process* create_process(int pid, int arrival_time, int cpu_burst, int io_burst);
-
 void update_process_state(Process *process, ProcessState new_state);
-
 void terminate_process(Process *process);
-
 void print_process_info(const Process *process);

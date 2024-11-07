@@ -2,9 +2,6 @@
 
 #include "common.h"
 
-/* 타이머 간격 */
-#define TIMER_INTERVAL 1000
-
 /* 타이머 초기화 함수 */
 void initialize_timer(void (*handler)(int));
 
