@@ -19,4 +19,3 @@ int isEmpty(Queue *q);
 void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, int remaining_time);
 Process* dequeue(Queue *q);
 void removeQueue(Queue *q);
-void printQueue(const Queue *q, char type);

@@ -1,21 +1,21 @@
-// #pragma once
+#pragma once
 
-// #include <sys/msg.h>
-// #include <sys/ipc.h>
-// #include <sys/shm.h>
-// #include <sys/sem.h>
+#include <sys/msg.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <sys/sem.h>
 
-// #include "common.h"
+#include "common.h"
 
-// typedef struct{
-//     long mtype;
-//     int pid;
-//     int cpu_burst;
-//     int io_burst;
-//     int state;
-// }Message;
+typedef struct{
+    long mtype;
+    int pid;
+    int cpu_burst;
+    int io_burst;
+    int state;
+}Message;
 
-// void initialize_ipc();
-// int send_msg(int msgid, int pid, int cpu_burst, int io_burst, int state);
-// int recv_msg(int msgid, Message *msg, long msg_type);
-// void cleanup_ipc();
+void initialize_ipc();
+int send_msg(int msgid, int pid, int cpu_burst, int io_burst, int state);
+int recv_msg(int msgid, Message *msg, long msg_type);
+void cleanup_ipc();

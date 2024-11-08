@@ -20,7 +20,10 @@ extern int counter;
 extern int proc_count;
 extern int burst_limit;
 
-extern int wait_time;
-extern int turnaround_time;
-extern int run_time;
 extern int time_count;
+
+extern int time_tick;
+extern int time_quantum;
+
+extern double wait_time;
+extern double turnaround_time;

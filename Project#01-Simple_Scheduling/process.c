@@ -8,11 +8,17 @@ Process* create_process(int pid, int arrival_time, int cpu_burst, int io_burst, 
     }
 
     new_process->pid = pid;
-    new_process->arrival_time = arrival_time;
+
     new_process->cpu_burst = cpu_burst;
     new_process->io_burst = io_burst;
     new_process->state = NEW;
     new_process->remaining_time = time_tick;
+
+    
+    new_process->arrival_time = 0;
+    new_process->start_time = 0;
+    new_process->completion_time = 0;
+    new_process->total_wait_time = 0;
 
     return new_process;
 }
@@ -28,12 +34,4 @@ void terminate_process(Process *process){
         printf("Terminating process %d\n", process->pid);
         free(process);
     }
-}
-
-void print_process_info(const Process *process){
-    printf("Process ID: %d\n", process->pid);
-    printf("Arrival Time: %d\n", process->arrival_time);
-    printf("CPU Burst: %d\n", process->cpu_burst);
-    printf("I/O Burst: %d\n", process->io_burst);
-    printf("State: %d\n", process->state);
 }

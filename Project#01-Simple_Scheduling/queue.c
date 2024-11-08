@@ -1,8 +1,8 @@
 #include "queue.h"
 
-Queue* createQueue(){
+Queue* createQueue() {
     Queue *q = (Queue*)malloc(sizeof(Queue));
-    if(q == NULL){
+    if (q == NULL) {
         perror("Failed to create Queue");
         exit(EXIT_FAILURE);
     }
@@ -12,14 +12,14 @@ Queue* createQueue(){
     return q;
 }
 
-int isEmpty(Queue *q){
+int isEmpty(Queue *q) {
     return (q->count == 0);
 }
 
-void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, int remaining_time){
+void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, int remaining_time) {
     Node *node = (Node*)malloc(sizeof(Node));
 
-    if(node == NULL){
+    if (node == NULL) {
         perror("Failed to enqueue process");
         exit(EXIT_FAILURE);
     }
@@ -27,74 +27,48 @@ void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, int remaining_time)
     node->pcb.pid = pid;
     node->pcb.cpu_burst = cpu_burst;
     node->pcb.io_burst = io_burst;
-    node->next = NULL;
     node->pcb.remaining_time = remaining_time;
+    node->next = NULL;
 
-    if(q->head == NULL){
+    if (q->head == NULL) {
         q->head = node;
         q->tail = node;
-    }
-    else{
+    } else {
         q->tail->next = node;
         q->tail = node;
     }
     q->count++;
 }
 
-Process* dequeue(Queue *q){
-    if(isEmpty(q)){
+Process* dequeue(Queue *q) {
+    if (isEmpty(q)) {
         fprintf(stderr, "Queue is Empty\n");
         return NULL;
     }
 
-    if(!isEmpty(q)){
-        Node *temp = q->head;
-        
-        Process *process = (Process*)malloc(sizeof(Process));
-        if (temp != NULL) {
-            if (process == NULL) {
-                perror("Failed to allocate memory for process");
-                exit(EXIT_FAILURE);
-            }
-            
-            *process = temp->pcb;  // Process 복사
-            
-            // Node 메모리 해제
-            printf("temp Freeing complete I/O process with PID: %d\n", temp->pcb.pid);
-            free(temp);
-            temp = NULL;
-        }
-        if (q->head->next == NULL) {
-            q->head == NULL;
-            q->tail == NULL;
-        }
-        else{
-            q->head = q->head->next;
-        }
-        
-        q->count--;
+    Node *temp = q->head;
+    Process *process = (Process*)malloc(sizeof(Process));
+    if (process == NULL) {
+        perror("Failed to allocate memory for process");
+        exit(EXIT_FAILURE);
+    }
+    *process = temp->pcb;
 
-        return process;  // 반환된 process는 한 번만 free 되어야 함
+    q->head = q->head->next;  
+    if (q->head == NULL) {     
+        q->tail = NULL;
     }
 
-    
+    free(temp);  
+    q->count--;
+
+    return process;
 }
 
-void removeQueue(Queue *q){
-    while(!isEmpty(q)){
-        dequeue(q);
+void removeQueue(Queue *q) {
+    while (!isEmpty(q)) {
+        Process *p = dequeue(q);
+        free(p); 
     }
     free(q);
-}
-
-void printQueue(const Queue *q, char type){
-    Node *current = q->head;
-    printf("Queue %c (Count: %d):\n", type, q->count);
-
-    while(current != NULL){
-        printf("Process ID: %d, CPU Burst: %d, IO Burst: %d\n",
-               current->pcb.pid, current->pcb.cpu_burst, current->pcb.io_burst);
-        current = current->next;
-    }
-    printf("\n");
 }
