@@ -21,19 +21,20 @@ const char* get_timestamp(){
 
 void log_process_event(const Process *process, const char *event){
     if(log_file){
-        fprintf(log_file, "[%s] Process %d - %s\n", get_timestamp(), process->pid, event); // 이 부분이 문제인거 같아
+        fprintf(log_file, "[%s] Process %d - %s\n\n", get_timestamp(), process->pid, event);
     }
 }
 
 void log_queue_state(const char *queue_name, const Queue *queue){
     if(log_file){
-        fprintf(log_file, "[%s] Queue State - %s\n", get_timestamp(), queue_name);
+        fprintf(log_file, "/*=======================================================*/\n");
+        fprintf(log_file, "\n[%s] Queue State - %s\n", get_timestamp(), queue_name);
         
         if(!isEmpty(queue)){
             Node *current = queue->head;
             while (current != NULL){
-                fprintf(log_file, "Process ID: %d, CPU Burst: %d, IO Burst: %d, Remaining: %d, State: %d\n",
-                        current->pcb.pid, current->pcb.cpu_burst, current->pcb.io_burst, current->pcb.remaining_time, current->pcb.state);
+                fprintf(log_file, "Process ID: %d, CPU Burst: %d, IO Burst: %d, Remaining: %d\n",
+                        current->pcb.pid, current->pcb.cpu_burst, current->pcb.io_burst, current->pcb.remaining_time);
                 current = current->next;
             }
         }
@@ -44,7 +45,7 @@ void log_queue_state(const char *queue_name, const Queue *queue){
 
 void close_log(){
     if (log_file){
-        fprintf(log_file, "----- End of Log -----\n");
+        fprintf(log_file, "\n----- End of Log -----\n");
         fclose(log_file);
         log_file = NULL;
     }

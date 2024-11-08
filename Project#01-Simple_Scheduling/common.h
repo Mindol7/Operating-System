@@ -14,7 +14,7 @@
 
 #define TIME_QUANTUM 5
 #define MAX_PROCESSES 10
-#define TIME_TICK 100
+#define TIME_TICK 1
 
 extern int counter;
 extern int proc_count;
@@ -23,3 +23,4 @@ extern int burst_limit;
 extern int wait_time;
 extern int turnaround_time;
 extern int run_time;
+extern int time_count;

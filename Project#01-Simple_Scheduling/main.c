@@ -14,171 +14,128 @@ int time_count = 0;
 void scheduler_handler(int signo){
     time_count++;
 
-    if(signo == SIGALRM && time_count == TIME_QUANTUM){ // 이때 전환이 일어나는거임
+    if(signo == SIGALRM){
         if(!isEmpty(ready_queue)) {
             Node *current_ready = ready_queue->head;
-        
             if(current_ready != NULL){
-                log_process_event(current_ready, "Running");
-                current_ready->pcb.cpu_burst -= TIME_TICK/10;
-                
-                if(current_ready->pcb.cpu_burst <= 0){ // cpu 끝났고
-                    if(current_ready->pcb.io_burst > 0){ // io는 안끝나면
-                        printf("RR PID DEBUG: %d\n", current_ready->pcb.pid);
-                        
-                        log_process_event(current_ready, "First Moved to WAIT queue for I/O"); // wait queue로 이동
-                        enqueue(wait_queue, current_ready->pcb.pid, 0, current_ready->pcb.io_burst);
-                        dequeue(ready_queue);
-                        
-                    }
-                    else{ // 둘다 끝난거면 끝
-                        update_process_state(current_ready, TERMINATED);
-                        log_process_event(current_ready, "Completed123");
-                        
-                        printf("1. Finished Process ID: %d\n", current_ready->pcb.pid);
-                        dequeue(ready_queue);
-                    }
-                }
-                else{ // cpu > 0
-                    if(current_ready->pcb.io_burst <= 0){ // io <= 0
-                        printf("RE ENQUEUED RR PID DEBUG: %d\n", current_ready->pcb.pid);
-
-                        log_process_event(current_ready, "First Re-enqueued to READY queue");
-                        enqueue(ready_queue, current_ready->pcb.pid, current_ready->pcb.cpu_burst, 0);
-                        dequeue(wait_queue);
-
-                    }
-                    else{
-                        log_process_event(current_ready, "Second Moved to WAIT queue for I/O");
-                        enqueue(wait_queue, current_ready->pcb.pid, current_ready->pcb.cpu_burst, current_ready->pcb.io_burst);
-                        dequeue(ready_queue);
-                    }
-                }
-            }
-        }
-
-        if(!isEmpty(wait_queue)){
-            Node *current_wait = wait_queue->head; // 이동하고 줘서 그런가? 순서 문제?
-
-            if(current_wait != NULL){
-                    if(current_wait->pcb.io_burst <= 0){
-                        if(current_wait->pcb.cpu_burst > 0){
-                            log_process_event(current_wait, "First Moved to READY queue after I/O");
-                            enqueue(ready_queue, current_wait->pcb.pid, current_wait->pcb.cpu_burst, 0);
-                            dequeue(wait_queue);
-                            
+                if(current_ready->pcb.remaining_time == 0){ // 전환 필요 -> 부모 프로세스가 전환해줘야함 (요청 필요)
+                    if(current_ready->pcb.cpu_burst <= 0){
+                        if(current_ready->pcb.io_burst <= 0){ // 프로세스 종료
+                            update_process_state(current_ready, TERMINATED);
+                            log_process_event(current_ready, "Completed");
+                            dequeue(ready_queue);
                         }
-                        else{
-                            update_process_state(current_wait, TERMINATED);
-                            log_process_event(current_wait, "Completed456"); 
-                            printf("3. Finished Process ID: %d\n", current_wait->pcb.pid);   
-                            printf("Freeing complete I/O process with PID: %d\n", current_wait->pcb.pid);
+                        else{ // wait queue로 이동
+                            log_process_event(current_ready, "Moved to WAIT queue for I/O");
+                            enqueue(wait_queue, current_ready->pcb.pid, 0, current_ready->pcb.io_burst, TIME_QUANTUM);
                             dequeue(ready_queue);
                         }
                     }
-                    else{ // io가 0보다 큼
-                        if(current_wait->pcb.cpu_burst > 0){
-                            log_process_event(current_wait, "First Moved to READY queue after I/O");
-                            enqueue(ready_queue, current_wait->pcb.pid, current_wait->pcb.cpu_burst, 0);
+                    else{ // 다시 레디 큐로 돌아감
+                        log_process_event(current_ready, "Re-enqueued to Ready queue");
+                        enqueue(ready_queue, current_ready->pcb.pid, current_ready->pcb.cpu_burst, current_ready->pcb.io_burst, TIME_QUANTUM);
+                        dequeue(ready_queue);
+                    }
+                }
+                else if(current_ready->pcb.cpu_burst <= 0){
+                    if(current_ready->pcb.io_burst <= 0){
+                        update_process_state(current_ready, TERMINATED);
+                        log_process_event(current_ready, "Completed");
+                        dequeue(ready_queue);
+                    }
+                    else{
+                        log_process_event(current_ready, "Re-enqueued from Wait queue to Ready queue");
+                        enqueue(wait_queue, current_ready->pcb.pid, current_ready->pcb.cpu_burst, current_ready->pcb.io_burst, TIME_QUANTUM);
+                        dequeue(ready_queue);
+                    }
+                }
+                else{ // 단순 빼기
+                    log_process_event(current_ready, "Running");    
+                    current_ready->pcb.cpu_burst -= TIME_TICK;
+                    current_ready->pcb.remaining_time -= TIME_TICK;  
+                }
+            }
+        }
+        if(!isEmpty(wait_queue)){// burst 다되면 전환 필요
+            Node *current_wait = wait_queue->head;
+            if(current_wait != NULL){
+                if(current_wait->pcb.remaining_time == 0){ // 전환 필요
+                    if(current_wait->pcb.io_burst <= 0){
+                        if(current_wait->pcb.cpu_burst <= 0){ // 프로세스 종료
+                            update_process_state(current_wait, TERMINATED);
+                            log_process_event(current_wait, "Completed");
                             dequeue(wait_queue);
                         }
-                        else{
-                            log_process_event(current_wait, "First Re-Moved to WAIT queue after I/O");
-                            enqueue(wait_queue, current_wait->pcb.pid, current_wait->pcb.cpu_burst, 0);
+                        else{ // ready queue로 이동
+                            log_process_event(current_wait, "Moved to Ready queue");
+                            enqueue(ready_queue, current_wait->pcb.pid, current_wait->pcb.cpu_burst, 0, TIME_QUANTUM);
                             dequeue(wait_queue);
                         }
                     }
+                    else{ // 다시 wait 큐로 돌아감
+                        log_process_event(current_wait, "Re-enqueued to Wait queue");
+                        enqueue(wait_queue, current_wait->pcb.pid, current_wait->pcb.cpu_burst, current_wait->pcb.io_burst, TIME_QUANTUM);
+                        dequeue(wait_queue);
+                    }
                 }
-            }   
-        
-            time_count = 0;
-        }
-    
-
-    else { // 단순 빼기, 단, 0보다 작아지면 끝내거나 전환해줌
-        if (!isEmpty(wait_queue)) {  // wait_queue가 비어 있는지 확인
-            Node *current_wait = wait_queue->head;
-
-            if (current_wait != NULL) {
-                if(current_wait->pcb.io_burst <= 0){
+                else if(current_wait->pcb.io_burst <= 0){
                     if(current_wait->pcb.cpu_burst <= 0){
                         update_process_state(current_wait, TERMINATED);
-                        log_process_event(&current_wait->pcb, "Completed789");
-                        printf("4. Finished Process ID: %d\n", current_wait->pcb.pid);
-
+                        log_process_event(current_wait, "Completed");
                         dequeue(wait_queue);
                     }
                     else{
-                        log_process_event(&current_wait->pcb, "Second Moved to Ready queue for I/O");
-                        enqueue(ready_queue, current_wait->pcb.pid, current_wait->pcb.cpu_burst, 0);
+                        log_process_event(current_wait, "Re-enqueued from Wait queue to Ready queue");
+                        enqueue(ready_queue, current_wait->pcb.pid, current_wait->pcb.cpu_burst, current_wait->pcb.io_burst, TIME_QUANTUM);
                         dequeue(wait_queue);
                     }
                 }
-                else{
-                    current_wait->pcb.io_burst -=TIME_TICK/10;
-                }     
+                else{ // 단순 빼기
+                    log_process_event(current_wait, "Running");    
+                    current_wait->pcb.io_burst -= TIME_TICK;
+                    current_wait->pcb.remaining_time -= TIME_TICK;
+                }
             }
         }
+        log_queue_state("READY Queue", ready_queue);
+        log_queue_state("WAIT Queue", wait_queue);
     }
-        if (!isEmpty(ready_queue)) {  // ready_queue가 비어 있는지 확인
-            Node *current_ready = ready_queue->head;
-
-            if (current_ready != NULL) {
-                if(current_ready->pcb.cpu_burst <= 0){
-                    if(current_ready->pcb.io_burst <= 0){ // 여기서 문제
-                        update_process_state(current_ready, TERMINATED);
-                        log_process_event(&current_ready->pcb, "Completed101112");
-                        puts("HELLO!!!!!!!!!!\n");
-                        printf("Finished Process ID: %d\n", current_ready->pcb.pid);
-                        dequeue(ready_queue);
-                        // free(current_ready);
-                    }
-                    else{
-                        puts("DEBUG NO TIMEQUANTUM CURRENT READY ERROR\n");
-                        log_process_event(&current_ready->pcb, "Third Moved to Wait queue for I/O");
-                        enqueue(wait_queue, current_ready->pcb.pid, 0, current_ready->pcb.io_burst);
-                        dequeue(ready_queue);
-                    }
-                }
-                else{
-                    current_ready->pcb.cpu_burst -= TIME_TICK/10;
-                }
-            }
-        }
-    
-
-    log_queue_state("READY Queue", ready_queue); // 여기?
-    log_queue_state("WAIT Queue", wait_queue);
 }
 
 int main(int argc, char *argv[]){
-    if(argc < 2){
-        fprintf(stderr, "Usage: %s <burst_limit>", argv[0]);
+    if(argc < 2){ // 일단 보류  
+        fprintf(stderr, "Usage: %s <time_tick> <burst_limit>.\n Ex) %s 10 60", argv[0], argv[0]);
         exit(EXIT_FAILURE);
     }
 
     int max_limit = atoi(argv[1]);
 
+    struct timeval start, end;
+
     initialize_log("schedule_dump.txt");
     initialize_timer(scheduler_handler);
     initialize_scheduler();
 
-    
-
     ready_queue = createQueue();
     wait_queue = createQueue();
     
+    srand(time(NULL));
+
+
+    gettimeofday(&start, NULL);
+
     for(int i = 0; i < MAX_PROCESSES; i++){
         int cpu_burst = rand() % max_limit + 1;
         int io_burst = rand() % max_limit + 1;
 
-        Process *new_process = create_process(i, 0, cpu_burst, io_burst);
-        enqueue(ready_queue, new_process->pid, new_process->cpu_burst, new_process->io_burst); // 여기까지 io_burst 잘 전달되고 있음
+        Process *new_process = create_process(i, 0, cpu_burst, io_burst, TIME_QUANTUM);
+        enqueue(ready_queue, new_process->pid, new_process->cpu_burst, new_process->io_burst, TIME_QUANTUM);
         log_process_event(new_process, "Created");
 
         printf("Created Process: PID = %d, CPU Burst = %d, IO Burst = %d\n",
                new_process->pid, new_process->cpu_burst, new_process->io_burst);
     }
+    printf("\n");
 
     start_timer();
 
@@ -186,11 +143,19 @@ int main(int argc, char *argv[]){
         pause();
     }
 
-    puts("LETS FINISH\n");
+    gettimeofday(&end, NULL);
+
+    double elapsed = end.tv_sec - start.tv_sec;
+
     close_log();
     stop_timer();
     terminate_scheduler();
 
     printf("All processes completed. Exiting.\n");
+
+    printf("=====================================\n");
+    printf("Total Executing Time: %.3f\n", elapsed);
+    printf("=====================================\n");
+
     return 0;
 }

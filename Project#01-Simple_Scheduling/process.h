@@ -19,7 +19,7 @@ typedef struct{
     ProcessState state;
 } Process;
 
-Process* create_process(int pid, int arrival_time, int cpu_burst, int io_burst);
+Process* create_process(int pid, int arrival_time, int cpu_burst, int io_burst, int time_tick);
 void update_process_state(Process *process, ProcessState new_state);
 void terminate_process(Process *process);
 void print_process_info(const Process *process);

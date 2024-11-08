@@ -12,7 +12,6 @@ void initialize_scheduler(){
 
 Process* schedule_next(){
     if(!isEmpty(ready_queue)){
-        puts("HI");
         return dequeue(ready_queue);
     }
     return NULL;
@@ -20,11 +19,11 @@ Process* schedule_next(){
 
 void update_scheduler(Process *process){
     if(process->remaining_time > 0){
-        enqueue(ready_queue, process->pid, process->remaining_time, process->io_burst);
+        enqueue(ready_queue, process->pid, process->cpu_burst, process->io_burst, process->remaining_time);
         log_process_event(process, "Re-enqueued to READY queue");
     }
     else if(process->io_burst > 0){
-        enqueue(wait_queue, process->pid, 0, process->io_burst);
+        enqueue(wait_queue, process->pid, 0, process->io_burst, process->remaining_time);
         log_process_event(process, "Moved to WAIT queue for I/O");
     }
     else{

@@ -17,7 +17,7 @@ void initialize_timer(void (*handler)(int)){
 
     timer.it_value.tv_sec = 0;
     timer.it_value.tv_usec = TIME_TICK;
-    timer.it_interval.tv_sec = 1;
+    timer.it_interval.tv_sec = TIME_TICK;
     timer.it_interval.tv_usec = 0;
 }
 

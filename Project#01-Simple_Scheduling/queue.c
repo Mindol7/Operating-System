@@ -16,7 +16,7 @@ int isEmpty(Queue *q){
     return (q->count == 0);
 }
 
-void enqueue(Queue *q, int pid, int cpu_burst, int io_burst){
+void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, int remaining_time){
     Node *node = (Node*)malloc(sizeof(Node));
 
     if(node == NULL){
@@ -28,9 +28,7 @@ void enqueue(Queue *q, int pid, int cpu_burst, int io_burst){
     node->pcb.cpu_burst = cpu_burst;
     node->pcb.io_burst = io_burst;
     node->next = NULL;
-
-    printf("ENQUEUE PID DEBUG: %d\n", pid);
-    printf("ENQUEUE DEBUG: %d\n", node->pcb.pid);
+    node->pcb.remaining_time = remaining_time;
 
     if(q->head == NULL){
         q->head = node;

@@ -1,6 +1,6 @@
 #include "process.h"
 
-Process* create_process(int pid, int arrival_time, int cpu_burst, int io_burst){
+Process* create_process(int pid, int arrival_time, int cpu_burst, int io_burst, int time_tick){
     Process *new_process = (Process*)malloc(sizeof(Process));
     if(new_process == NULL){
         perror("Failed to create process");
@@ -12,6 +12,7 @@ Process* create_process(int pid, int arrival_time, int cpu_burst, int io_burst){
     new_process->cpu_burst = cpu_burst;
     new_process->io_burst = io_burst;
     new_process->state = NEW;
+    new_process->remaining_time = time_tick;
 
     return new_process;
 }
