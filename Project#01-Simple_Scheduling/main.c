@@ -1,7 +1,6 @@
 #include "common.h"
 #include "scheduling.h"
 #include "timer.h"
-#include "ipc.h"
 #include "queue.h"
 #include "process.h"
 #include "log.h"
@@ -87,7 +86,7 @@ int main(int argc, char *argv[]){
     double elapsed = end.tv_sec - start.tv_sec;
 
     wait_time = turnaround_time - elapsed;
-    
+
     close_log();
     stop_timer();
     terminate_scheduler();
