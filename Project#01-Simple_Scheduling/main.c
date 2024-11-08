@@ -9,6 +9,8 @@
 Queue *ready_queue;
 Queue *wait_queue;
 
+Process **parent;
+
 int time_tick;
 int time_quantum;
 
@@ -53,16 +55,24 @@ int main(int argc, char *argv[]){
 
     gettimeofday(&start, NULL);
 
+    parent = (Process*)malloc(sizeof(Process*)*MAX_PROCESSES);
+
+    if(parent == NULL){
+        perror("Failed to Allocation Memory.\n");
+        exit(EXIT_FAILURE);
+    }
+
     for(int i = 0; i < MAX_PROCESSES; i++){
         int cpu_burst = rand() % max_limit + 1;
         int io_burst = rand() % max_limit + 1;
 
-        Process *new_process = create_process(i, 0, cpu_burst, io_burst, time_quantum);
-        enqueue(ready_queue, new_process->pid, new_process->cpu_burst, new_process->io_burst, time_quantum);
-        log_process_event(new_process, "Created");
+        // Process *new_process = create_process(i, 0, cpu_burst, io_burst, time_quantum);
+        parent[i] = create_process(i, 0, cpu_burst, io_burst, time_quantum);
+        enqueue(ready_queue, parent[i]->pid, parent[i]->cpu_burst, parent[i]->io_burst, time_quantum);
+        log_process_event(parent[i], "Created");
 
         printf("Created Process: PID = %d, CPU Burst = %d, IO Burst = %d\n",
-               new_process->pid, new_process->cpu_burst, new_process->io_burst);
+               parent[i]->pid, parent[i]->cpu_burst, parent[i]->io_burst);
     }
     printf("\n");
 
@@ -76,6 +86,8 @@ int main(int argc, char *argv[]){
 
     double elapsed = end.tv_sec - start.tv_sec;
 
+    wait_time = turnaround_time - elapsed;
+    
     close_log();
     stop_timer();
     terminate_scheduler();
