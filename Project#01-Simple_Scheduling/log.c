@@ -33,6 +33,7 @@ void log_queue_state(const char *queue_name, const Queue *queue){
         if(!isEmpty(queue)){
             Node *current = queue->head;
             while (current != NULL){
+                
                 fprintf(log_file, "Process ID: %d, CPU Burst: %d, IO Burst: %d, Remaining: %d\n",
                         current->pcb.pid, current->pcb.cpu_burst, current->pcb.io_burst, current->pcb.remaining_time);
                 current = current->next;

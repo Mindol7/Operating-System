@@ -12,9 +12,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
-#define TIME_QUANTUM 5
 #define MAX_PROCESSES 10
-#define TIME_TICK 1
 
 extern int counter;
 extern int proc_count;
@@ -27,3 +25,6 @@ extern int time_quantum;
 
 extern double wait_time;
 extern double turnaround_time;
+extern double total_wait_time;
+
+extern int schedule_policy;

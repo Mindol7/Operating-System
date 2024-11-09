@@ -16,6 +16,7 @@ typedef struct{
 
 Queue* createQueue();
 int isEmpty(Queue *q);
-void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, int remaining_time);
+void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, double arrival_time, int remaining_time);
 Process* dequeue(Queue *q);
+void sort_queue(Queue *q);
 void removeQueue(Queue *q);

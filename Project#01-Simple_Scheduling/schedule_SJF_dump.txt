@@ -1,0 +1,1158 @@
+----- Scheduling Log -----
+Log initialized at: 2024-11-09 21:30:34
+
+[2024-11-09 21:30:34] Process 0 - Created
+
+[2024-11-09 21:30:34] Process 1 - Created
+
+[2024-11-09 21:30:34] Process 2 - Created
+
+[2024-11-09 21:30:34] Process 3 - Created
+
+[2024-11-09 21:30:34] Process 4 - Created
+
+[2024-11-09 21:30:34] Process 5 - Created
+
+[2024-11-09 21:30:34] Process 6 - Created
+
+[2024-11-09 21:30:34] Process 7 - Created
+
+[2024-11-09 21:30:34] Process 8 - Created
+
+[2024-11-09 21:30:34] Process 9 - Created
+
+[2024-11-09 21:30:34] Process 2 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:34] Queue State - READY Queue
+Process ID: 2, CPU Burst: 0, IO Burst: 6, Remaining: 0
+Process ID: 4, CPU Burst: 1, IO Burst: 7, Remaining: 0
+Process ID: 6, CPU Burst: 2, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 3, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:34] Queue State - WAIT Queue
+
+[2024-11-09 21:30:35] Process 2 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:30:35] Process 2 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:35] Queue State - READY Queue
+Process ID: 4, CPU Burst: 1, IO Burst: 7, Remaining: 0
+Process ID: 6, CPU Burst: 2, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 3, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:35] Queue State - WAIT Queue
+Process ID: 2, CPU Burst: 0, IO Burst: 5, Remaining: 0
+
+[2024-11-09 21:30:36] Process 4 - Running
+
+[2024-11-09 21:30:36] Process 2 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:36] Queue State - READY Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 6, CPU Burst: 2, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 3, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:36] Queue State - WAIT Queue
+Process ID: 2, CPU Burst: 0, IO Burst: 4, Remaining: 0
+
+[2024-11-09 21:30:37] Process 4 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:30:37] Process 2 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:37] Queue State - READY Queue
+Process ID: 6, CPU Burst: 2, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 3, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:37] Queue State - WAIT Queue
+Process ID: 2, CPU Burst: 0, IO Burst: 3, Remaining: 0
+Process ID: 4, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:38] Process 6 - Running
+
+[2024-11-09 21:30:38] Process 2 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:38] Queue State - READY Queue
+Process ID: 6, CPU Burst: 1, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 3, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:38] Queue State - WAIT Queue
+Process ID: 2, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 4, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:39] Process 6 - Running
+
+[2024-11-09 21:30:39] Process 2 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:39] Queue State - READY Queue
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 3, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:39] Queue State - WAIT Queue
+Process ID: 2, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 4, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:40] Process 6 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:30:40] Process 2 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:40] Queue State - READY Queue
+Process ID: 5, CPU Burst: 3, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:40] Queue State - WAIT Queue
+Process ID: 2, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 4, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+
+[2024-11-09 21:30:41] Process 5 - Running
+
+[2024-11-09 21:30:41] Process 2 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:30:41] Queue State - READY Queue
+Process ID: 5, CPU Burst: 2, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:41] Queue State - WAIT Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+
+[2024-11-09 21:30:42] Process 5 - Running
+
+[2024-11-09 21:30:42] Process 4 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:42] Queue State - READY Queue
+Process ID: 5, CPU Burst: 1, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:42] Queue State - WAIT Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 6, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+
+[2024-11-09 21:30:43] Process 5 - Running
+
+[2024-11-09 21:30:43] Process 4 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:43] Queue State - READY Queue
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:43] Queue State - WAIT Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 5, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+
+[2024-11-09 21:30:44] Process 5 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:30:44] Process 4 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:44] Queue State - READY Queue
+Process ID: 8, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:44] Queue State - WAIT Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:30:45] Process 8 - Running
+
+[2024-11-09 21:30:45] Process 4 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:45] Queue State - READY Queue
+Process ID: 8, CPU Burst: 2, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:45] Queue State - WAIT Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 3, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:30:46] Process 8 - Running
+
+[2024-11-09 21:30:46] Process 4 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:46] Queue State - READY Queue
+Process ID: 8, CPU Burst: 1, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:46] Queue State - WAIT Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:30:47] Process 8 - Running
+
+[2024-11-09 21:30:47] Process 4 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:47] Queue State - READY Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:47] Queue State - WAIT Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:30:48] Process 8 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:30:48] Process 4 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:48] Queue State - READY Queue
+Process ID: 3, CPU Burst: 5, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:48] Queue State - WAIT Queue
+Process ID: 4, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:49] Process 3 - Running
+
+[2024-11-09 21:30:49] Process 4 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:30:49] Queue State - READY Queue
+Process ID: 3, CPU Burst: 4, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:49] Queue State - WAIT Queue
+Process ID: 6, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:50] Process 3 - Running
+
+[2024-11-09 21:30:50] Process 6 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:50] Queue State - READY Queue
+Process ID: 3, CPU Burst: 3, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:50] Queue State - WAIT Queue
+Process ID: 6, CPU Burst: 0, IO Burst: 3, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:51] Process 3 - Running
+
+[2024-11-09 21:30:51] Process 6 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:51] Queue State - READY Queue
+Process ID: 3, CPU Burst: 2, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:51] Queue State - WAIT Queue
+Process ID: 6, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:52] Process 3 - Running
+
+[2024-11-09 21:30:52] Process 6 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:52] Queue State - READY Queue
+Process ID: 3, CPU Burst: 1, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:52] Queue State - WAIT Queue
+Process ID: 6, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:53] Process 3 - Running
+
+[2024-11-09 21:30:53] Process 6 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:53] Queue State - READY Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:53] Queue State - WAIT Queue
+Process ID: 6, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:30:54] Process 3 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:30:54] Process 6 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:30:54] Queue State - READY Queue
+Process ID: 9, CPU Burst: 5, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:54] Queue State - WAIT Queue
+Process ID: 5, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+
+[2024-11-09 21:30:55] Process 9 - Running
+
+[2024-11-09 21:30:55] Process 5 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:55] Queue State - READY Queue
+Process ID: 9, CPU Burst: 4, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:55] Queue State - WAIT Queue
+Process ID: 5, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+
+[2024-11-09 21:30:56] Process 9 - Running
+
+[2024-11-09 21:30:56] Process 5 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:56] Queue State - READY Queue
+Process ID: 9, CPU Burst: 3, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:56] Queue State - WAIT Queue
+Process ID: 5, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+
+[2024-11-09 21:30:57] Process 9 - Running
+
+[2024-11-09 21:30:57] Process 5 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:30:57] Queue State - READY Queue
+Process ID: 9, CPU Burst: 2, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:57] Queue State - WAIT Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+
+[2024-11-09 21:30:58] Process 9 - Running
+
+[2024-11-09 21:30:58] Process 8 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:58] Queue State - READY Queue
+Process ID: 9, CPU Burst: 1, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:58] Queue State - WAIT Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 6, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+
+[2024-11-09 21:30:59] Process 9 - Running
+
+[2024-11-09 21:30:59] Process 8 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:30:59] Queue State - READY Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:30:59] Queue State - WAIT Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 5, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+
+[2024-11-09 21:31:00] Process 9 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:31:00] Process 8 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:00] Queue State - READY Queue
+Process ID: 1, CPU Burst: 6, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:00] Queue State - WAIT Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+
+[2024-11-09 21:31:01] Process 1 - Running
+
+[2024-11-09 21:31:01] Process 8 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:01] Queue State - READY Queue
+Process ID: 1, CPU Burst: 5, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:01] Queue State - WAIT Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 3, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+
+[2024-11-09 21:31:02] Process 1 - Running
+
+[2024-11-09 21:31:02] Process 8 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:02] Queue State - READY Queue
+Process ID: 1, CPU Burst: 4, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:02] Queue State - WAIT Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+
+[2024-11-09 21:31:03] Process 1 - Running
+
+[2024-11-09 21:31:03] Process 8 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:03] Queue State - READY Queue
+Process ID: 1, CPU Burst: 3, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:03] Queue State - WAIT Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+
+[2024-11-09 21:31:04] Process 1 - Running
+
+[2024-11-09 21:31:04] Process 8 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:04] Queue State - READY Queue
+Process ID: 1, CPU Burst: 2, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:04] Queue State - WAIT Queue
+Process ID: 8, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+
+[2024-11-09 21:31:05] Process 1 - Running
+
+[2024-11-09 21:31:05] Process 8 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:31:05] Queue State - READY Queue
+Process ID: 1, CPU Burst: 1, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:05] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 9, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+
+[2024-11-09 21:31:06] Process 1 - Running
+
+[2024-11-09 21:31:06] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:06] Queue State - READY Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:06] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+
+[2024-11-09 21:31:07] Process 1 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:31:07] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:07] Queue State - READY Queue
+Process ID: 7, CPU Burst: 7, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:07] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:31:08] Process 7 - Running
+
+[2024-11-09 21:31:08] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:08] Queue State - READY Queue
+Process ID: 7, CPU Burst: 6, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:08] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 6, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:31:09] Process 7 - Running
+
+[2024-11-09 21:31:09] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:09] Queue State - READY Queue
+Process ID: 7, CPU Burst: 5, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:09] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 5, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:31:10] Process 7 - Running
+
+[2024-11-09 21:31:10] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:10] Queue State - READY Queue
+Process ID: 7, CPU Burst: 4, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:10] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:31:11] Process 7 - Running
+
+[2024-11-09 21:31:11] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:11] Queue State - READY Queue
+Process ID: 7, CPU Burst: 3, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:11] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 3, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:31:12] Process 7 - Running
+
+[2024-11-09 21:31:12] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:12] Queue State - READY Queue
+Process ID: 7, CPU Burst: 2, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:12] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:31:13] Process 7 - Running
+
+[2024-11-09 21:31:13] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:13] Queue State - READY Queue
+Process ID: 7, CPU Burst: 1, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:13] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:31:14] Process 7 - Running
+
+[2024-11-09 21:31:14] Process 3 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:14] Queue State - READY Queue
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:14] Queue State - WAIT Queue
+Process ID: 3, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+
+[2024-11-09 21:31:15] Process 7 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:31:15] Process 3 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:31:15] Queue State - READY Queue
+Process ID: 0, CPU Burst: 9, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:15] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 8, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:16] Process 0 - Running
+
+[2024-11-09 21:31:16] Process 9 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:16] Queue State - READY Queue
+Process ID: 0, CPU Burst: 8, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:16] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:17] Process 0 - Running
+
+[2024-11-09 21:31:17] Process 9 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:17] Queue State - READY Queue
+Process ID: 0, CPU Burst: 7, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:17] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 6, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:18] Process 0 - Running
+
+[2024-11-09 21:31:18] Process 9 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:18] Queue State - READY Queue
+Process ID: 0, CPU Burst: 6, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:18] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 5, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:19] Process 0 - Running
+
+[2024-11-09 21:31:19] Process 9 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:19] Queue State - READY Queue
+Process ID: 0, CPU Burst: 5, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:19] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:20] Process 0 - Running
+
+[2024-11-09 21:31:20] Process 9 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:20] Queue State - READY Queue
+Process ID: 0, CPU Burst: 4, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:20] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 3, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:21] Process 0 - Running
+
+[2024-11-09 21:31:21] Process 9 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:21] Queue State - READY Queue
+Process ID: 0, CPU Burst: 3, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:21] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:22] Process 0 - Running
+
+[2024-11-09 21:31:22] Process 9 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:22] Queue State - READY Queue
+Process ID: 0, CPU Burst: 2, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:22] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:23] Process 0 - Running
+
+[2024-11-09 21:31:23] Process 9 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:23] Queue State - READY Queue
+Process ID: 0, CPU Burst: 1, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:23] Queue State - WAIT Queue
+Process ID: 9, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:24] Process 0 - Running
+
+[2024-11-09 21:31:24] Process 9 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:31:24] Queue State - READY Queue
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+/*=======================================================*/
+
+[2024-11-09 21:31:24] Queue State - WAIT Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 7, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:25] Process 0 - Moved to WAIT queue for I/O
+
+[2024-11-09 21:31:25] Process 1 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:25] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:25] Queue State - WAIT Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 6, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:26] Process 1 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:26] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:26] Queue State - WAIT Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 5, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:27] Process 1 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:27] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:27] Queue State - WAIT Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 4, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:28] Process 1 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:28] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:28] Queue State - WAIT Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 3, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:29] Process 1 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:29] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:29] Queue State - WAIT Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:30] Process 1 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:30] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:30] Queue State - WAIT Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:31] Process 1 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:31] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:31] Queue State - WAIT Queue
+Process ID: 1, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:32] Process 1 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:31:32] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:32] Queue State - WAIT Queue
+Process ID: 7, CPU Burst: 0, IO Burst: 2, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:33] Process 7 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:33] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:33] Queue State - WAIT Queue
+Process ID: 7, CPU Burst: 0, IO Burst: 1, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:34] Process 7 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:34] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:34] Queue State - WAIT Queue
+Process ID: 7, CPU Burst: 0, IO Burst: 0, Remaining: 0
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:35] Process 7 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:31:35] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:35] Queue State - WAIT Queue
+Process ID: 0, CPU Burst: 0, IO Burst: 3, Remaining: 0
+
+[2024-11-09 21:31:36] Process 0 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:36] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:36] Queue State - WAIT Queue
+Process ID: 0, CPU Burst: 0, IO Burst: 2, Remaining: 0
+
+[2024-11-09 21:31:37] Process 0 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:37] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:37] Queue State - WAIT Queue
+Process ID: 0, CPU Burst: 0, IO Burst: 1, Remaining: 0
+
+[2024-11-09 21:31:38] Process 0 - Running
+
+/*=======================================================*/
+
+[2024-11-09 21:31:38] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:38] Queue State - WAIT Queue
+Process ID: 0, CPU Burst: 0, IO Burst: 0, Remaining: 0
+
+[2024-11-09 21:31:39] Process 0 - Completed
+
+/*=======================================================*/
+
+[2024-11-09 21:31:39] Queue State - READY Queue
+
+/*=======================================================*/
+
+[2024-11-09 21:31:39] Queue State - WAIT Queue
+
+
+----- End of Log -----

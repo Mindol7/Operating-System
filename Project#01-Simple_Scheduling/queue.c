@@ -16,7 +16,7 @@ int isEmpty(Queue *q) {
     return (q->count == 0);
 }
 
-void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, int remaining_time) {
+void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, double arrival_time, int remaining_time) {
     Node *node = (Node*)malloc(sizeof(Node));
 
     if (node == NULL) {
@@ -27,6 +27,7 @@ void enqueue(Queue *q, int pid, int cpu_burst, int io_burst, int remaining_time)
     node->pcb.pid = pid;
     node->pcb.cpu_burst = cpu_burst;
     node->pcb.io_burst = io_burst;
+    node->pcb.arrival_time = arrival_time;
     node->pcb.remaining_time = remaining_time;
     node->next = NULL;
 
@@ -63,6 +64,36 @@ Process* dequeue(Queue *q) {
     q->count--;
 
     return process;
+}
+
+void sort_queue(Queue *q) {
+    if (q == NULL || q->head == NULL) {
+        return;  // 큐가 비어있거나 NULL인 경우 아무 작업도 하지 않음
+    }
+
+    int swapped;
+    Node *current;
+    Node *last = NULL;
+
+    // 버블 정렬을 사용하여 큐를 cpu_burst 기준으로 오름차순 정렬
+    do {
+        swapped = 0;
+        current = q->head;
+
+        while (current->next != last) {
+            // cpu_burst 기준으로 오름차순 정렬
+            if (current->pcb.cpu_burst > current->next->pcb.cpu_burst) {
+                // 현재 노드와 다음 노드의 Process 데이터 교환
+                Process temp = current->pcb;
+                current->pcb = current->next->pcb;
+                current->next->pcb = temp;
+                
+                swapped = 1;
+            }
+            current = current->next;
+        }
+        last = current;  // 마지막으로 확인된 노드는 이미 정렬된 상태
+    } while (swapped);
 }
 
 void removeQueue(Queue *q) {

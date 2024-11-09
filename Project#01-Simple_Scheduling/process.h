@@ -19,11 +19,11 @@ typedef struct{
     double arrival_time;
     double start_time;
     double completion_time;
-    double total_wait_time;
 
+    int flag;
     ProcessState state;
 } Process;
 
-Process* create_process(int pid, int arrival_time, int cpu_burst, int io_burst, int time_tick);
+Process* create_process(int pid, int cpu_burst, int io_burst, int time_tick);
 void update_process_state(Process *process, ProcessState new_state);
 void terminate_process(Process *process);
