@@ -132,8 +132,8 @@ int main(int argc, char *argv[]){
     printf("All processes completed. Exiting.\n");
 
     printf("=====================================\n");
-    printf("Avg. Wait Time: %.3f (sec) \n", total_wait_time / wait_proc_count);
-    printf("Avg. Turnaround Time: %.3f (sec)\n", turnaround_time / turn_proc_count);
+    printf("Avg. Wait Time: %.3f\n", total_wait_time / wait_proc_count);
+    printf("Avg. Turnaround Time: %.3f\n", turnaround_time / turn_proc_count);
     printf("=====================================\n");
 
     return 0;
