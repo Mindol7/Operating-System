@@ -45,7 +45,7 @@ extern int * virtual_memory;
 
 extern int timer;
 
-extern int disk[DISK_SIZE]; // 16MB
+extern int disk[DISK_SIZE];
 extern int disk_idx;
 
 extern int tb1_hit;
