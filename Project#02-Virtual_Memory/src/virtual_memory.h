@@ -11,9 +11,9 @@
 #define FRAME_NUM (PHYSICAL_SIZE / PAGE_SIZE)
 #define PAGE_NUM (VIRTUAL_SIZE / PAGE_SIZE)
 
-#define FAULT_CODE_2 2 // 자유 페이지 리스트에 Fault 존재 시 처리 코드
-#define FAULT_CODE_1 1 // 디스크에 존재할시 Fault 처리 코드
-#define FAULT_CODE_0 0 // 이외 처리 코드
+#define FAULT_CODE_2 2
+#define FAULT_CODE_1 1 
+#define FAULT_CODE_0 0 
 
 typedef struct PT{
     int *matching_frame;

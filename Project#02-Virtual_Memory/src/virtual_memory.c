@@ -5,9 +5,14 @@ void initialize_memory(int **physical_memory, int **virtual_memory){
     uint32_t idx = 0;
 
     *physical_memory = (int*)malloc(PHYSICAL_SIZE);
+    *virtual_memory = (int*)malloc(VIRTUAL_SIZE);
 
     if(*physical_memory == NULL){
         fprintf(stderr, "Memory allocation failed for physical_memory\n");
+        exit(EXIT_FAILURE);
+    }
+    if(*virtual_memory == NULL){
+        fprintf(stderr, "Memory allocation failed for virtual_memory\n");
         exit(EXIT_FAILURE);
     }
 
@@ -23,13 +28,20 @@ void initialize_memory(int **physical_memory, int **virtual_memory){
     }
 
     fclose(fp);
+}
 
-    *virtual_memory = (int*)malloc(VIRTUAL_SIZE);
+PageDirectory initialize_page_directory(){
+    PageDirectory page_directory;
+    page_directory.page_table = (PageTable**)malloc(PAGE_NUM * sizeof(PageTable *));
 
-    if(*virtual_memory == NULL){
-        fprintf(stderr, "Memory allocation failed for virtual_memory\n");
+    if(page_directory.page_table == NULL){
+        fprintf(stderr, "Memory Allocatiuon Failed for page directory\n");
         exit(EXIT_FAILURE);
     }
+
+    for(int i = 0; i < PAGE_NUM; i++) page_directory.page_table[i] = NULL;
+    
+    return page_directory;
 }
 
 FreeFrameList initialize_free_frame_list(void){
@@ -45,20 +57,6 @@ FreeFrameList initialize_free_frame_list(void){
     for(int i = 0; i < FRAME_NUM; i++) free_page.free_frame_list[i] = 1;
     
     return free_page;
-}
-
-PageDirectory initialize_page_directory(){
-    PageDirectory page_directory;
-    page_directory.page_table = (PageTable**)malloc(PAGE_NUM * sizeof(PageTable *));
-
-    if(page_directory.page_table == NULL){
-        fprintf(stderr, "Memory Allocatiuon Failed for page directory\n");
-        exit(EXIT_FAILURE);
-    }
-
-    for(int i = 0; i < PAGE_NUM; i++) page_directory.page_table[i] = NULL;
-    
-    return page_directory;
 }
 
 int MMU(PageDirectory *page_directory, int virtual_address, bool *first_table_fault, bool *second_table_fault, bool *isRead, bool *isWrite){
@@ -90,11 +88,6 @@ int MMU(PageDirectory *page_directory, int virtual_address, bool *first_table_fa
 int handle_page_fault(PageDirectory *page_directory, FreeFrameList *free_list, int virtual_address, int pid){
     int fault_dir_idx = (virtual_address >> 22) & 0x3ff;   
     int fault_table_idx = (virtual_address >> 12) & 0x3ff; 
-
-    if(fault_dir_idx < 0 || fault_dir_idx >= PAGE_NUM){
-        fprintf(stderr, "Directory index out of bounds: %d\n", fault_dir_idx);
-        exit(EXIT_FAILURE);
-    }
 
     if(page_directory->page_table[fault_dir_idx] == NULL){
         page_directory->page_table[fault_dir_idx] = (PageTable *)malloc(sizeof(PageTable));
@@ -317,7 +310,7 @@ int read_page_from_disk(int line_num) {
 
         fseek(disk_file, line_num, SEEK_SET);
         if(fgets(line, sizeof(line), disk_file)){
-                if(sscanf(line, "%*d, %*d, %*d, %x", &data) == 1) found = 1;
+            if(sscanf(line, "%*d, %*d, %*d, %x", &data) == 1) found = 1;
             fputs(line, temp);
         }
 
@@ -336,7 +329,7 @@ int read_page_from_disk(int line_num) {
     }
     else if(disk_policy == 2){
         data = disk[line_num + 3];
-        disk[line_num] = 0; disk[line_num+1] = 0; disk[line_num+2] = 0; disk[line_num+3] = 0; // 데이터 읽고 삭제
+        disk[line_num] = 0; disk[line_num+1] = 0; disk[line_num+2] = 0; disk[line_num+3] = 0;
         return data;
     }
 }
@@ -413,7 +406,7 @@ void demand_paging(FreeFrameList *free_frame_list, Queue * queue){
         }   
         else{
             request = "R";         
-            log_memory_state(virtual_address, physical_address, current_process, first_table_fault, second_table_fault, &physical_memory[physical_address], i, request, isSwap, isCow); // 로그 작성
+            log_memory_state(virtual_address, physical_address, current_process, first_table_fault, second_table_fault, &physical_memory[physical_address], i, request, isSwap, isCow);
         }
     }
     timer++;
